@@ -6,11 +6,7 @@ public class Solution {
         int answer = 0;
         for (int i = 0; i < included.Length; i++)
         {
-            aSNum[i] = a + (d * i);
-            if (included[i] == true)
-            {
-                answer += aSNum[i];
-            }
+            if (included[i] == true) answer += a + (d * i);
         }
         
         return answer;
