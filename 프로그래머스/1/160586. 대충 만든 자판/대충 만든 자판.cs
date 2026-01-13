@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class Solution {
     public int[] solution(string[] keymap, string[] targets) {
-        int[] answer = new int[targets.Length];
         
         Dictionary<char, int> minkeys = new Dictionary<char, int>();
         
@@ -21,22 +20,27 @@ public class Solution {
             }
         }
         
+        
+        
+        
+        int[] answer = new int[targets.Length];
+        
         for (int i = 0; i < targets.Length; i++)
         {
             int sum = 0;
-            bool possible = true;
+            bool check = true;
 
             foreach (char c in targets[i])
             {
                 if (!minkeys.ContainsKey(c))
                 {
-                    possible = false;
+                    check = false;
                     break;
                 }
                 sum += minkeys[c];
             }
-
-            answer[i] = possible ? sum : -1;
+            
+            answer[i] = check ? sum : -1;
         }
         
         return answer;
